@@ -1,0 +1,72 @@
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Yinka Enoch Adedokun">
+	<title>Login Page</title>
+</head>
+<body>
+	<!-- Main Content -->
+	<div class="container-fluid">
+		<div class="row main-content bg-success text-center">
+			<div class="col-md-4 text-center company__info">
+				<span class="company__logo"><h2><span class="fa fa-android"></span></h2></span>
+				<h4 class="company_title"><p>Recipe Book </p><p>Login</p></h4>
+			</div>
+			<div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+				<div class="container-fluid">
+					<div class="row">
+						<h2>Log In</h2>
+					</div>
+					<div class="row">
+						<div class="alert alert-danger" *ngIf="error ">
+							<p>{{error}}</p>
+						</div>
+						<div *ngIf="isLoading" style="text-align: center;">
+							<app-loading-spinner></app-loading-spinner>
+						</div>
+						<form control="" class="form-group" #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
+							<div class="row">
+								<input 
+                                type="text" 
+                                id="username" 
+                                class="form__input"
+                                 placeholder="E-Mail"
+                                 ngModel 
+                                 name="email"
+                                 required
+                                 email>
+							</div>
+							<div class="row">
+								<!-- <span class="fa fa-lock"></span> -->
+								<input 
+                                type="password" 
+                                class="form__input" 
+                                placeholder="Password"
+                                name="password"
+                                ngModel
+                                required
+                                minlength="6">
+							</div>
+							
+							<div class="row">
+								<button  
+                                class="btn" 
+                                type="submit"  
+                                [disabled]="!authForm.valid"
+                                >
+                                    {{isLoginMode ?'Login': 'Sign Up'}}
+                                </button>
+                                <button  class="btn" (click)="onSwitchMode()" type="button">
+                                    Switch to {{isLoginMode ? 'Sing Up':'Login'}}
+                                </button>
+							</div>
+						</form>
+					</div>
+                    
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
