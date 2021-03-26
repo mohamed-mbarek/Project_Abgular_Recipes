@@ -6,15 +6,15 @@
 
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li routerLinkActive="active"><a routerLink="/auth" style="color:rgb(0, 241, 60);" *ngIf="!isAuthentificated"><b>Authentificate</b></a></li>
-        <li routerLinkActive="active"><a routerLink="/recipes" style="color:rgb(0, 241, 60);" *ngIf="isAuthentificated"><b>Recipes</b></a></li>
+        <li routerLinkActive="active"><a routerLink="/auth" style="color:rgb(0, 241, 60);" *ngIf="!isAuthenticated"><b>Authentificate</b></a></li>
+        <li routerLinkActive="active"><a routerLink="/recipes" style="color:rgb(0, 241, 60);" *ngIf="isAuthenticated"><b>Recipes</b></a></li>
         <li routerLinkActive="active"><a  routerLink="/shopping-list" style="color:rgb(0, 241, 60);">Shopping List</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li *ngIf="isAuthentificated">
+        <li *ngIf="isAuthenticated">
           <a  style="cursor :pointer" style="color:rgba(163, 1, 1, 0.658);" (click)="onLogout()"> <b>Logout</b></a>
         </li>
-        <li class="dropdown"appDropdown *ngIf="isAuthentificated" >
+        <li class="dropdown"appDropdown *ngIf="isAuthenticated" >
           <a  style="cursor :pointer" class="dropdown-toggle" role="button" style="color:rgb(0, 241, 60);">Manage <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a  style="cursor :pointer" (click)="onSaveData()">Save Data</a></li>
